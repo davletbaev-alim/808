@@ -23,16 +23,18 @@
         font-weight: 400;
         font-family: 'Cormorant Garamond', sans-serif;
         color: var(--color-light-dark);
-        
-        &-link.is-current::after{
-            content: '';
+        column-gap: 7px;
+    }
+
+     &-link.is-current::after{
+            content:"";
             width: 5px;
             height: 5px;
             background-color: currentColor;
             border-radius: 50%;
-            column-gap: 7px;
+            
         }
-    }
  }
+ 
     
 }
