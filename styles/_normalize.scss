@@ -254,5 +254,16 @@
   h1, h2, h3, h4, h5, h6{
     font-weight: 700;
     text-transform: uppercase;
+
+  }
+
+  a {
+    color:var(--color-light-dark);
+  }
+
+  a:hover{
+    color: var(--color-red);
+    transition: color var(--transition-duration) ease-in-out;
     
   }
+  
