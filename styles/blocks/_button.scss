@@ -1,0 +1,19 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding-inline: 48px;
+  border: 2px solid var(--white);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--white);
+  background-color: transparent;
+  white-space: nowrap;
+
+  &:hover {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    transition-duration: var(--transition-duration);
+  }
+}

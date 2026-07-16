@@ -9,36 +9,27 @@
 }
 
 /**
-  Убираем внутренние отступы слева тегам списков,
-  у которых есть атрибут class
- */
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
 :where(ul, ol):where([class]) {
   padding-left: 0;
 }
 
 /**
-  Убираем внешние отступы body и двум другим тегам,
-  у которых есть атрибут class
- */
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
 body,
 :where(blockquote, figure):where([class]) {
   margin: 0;
 }
 
 /**
-  Убираем внешние отступы вертикали нужным тегам,
-  у которых есть атрибут class
- */
-:where(h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-dl):where([class]) {
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
   margin-block: 0;
 }
 
@@ -53,9 +44,9 @@ dl):where([class]) {
 }
 
 /**
-  Убираем стандартный маркер маркированному списку,
-  у которого есть атрибут class
- */
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
 :where(ul[class]) {
   list-style: none;
 }
@@ -65,26 +56,26 @@ dl):where([class]) {
 }
 
 /**
-  Обнуляем вертикальные внешние отступы параграфа,
-  объявляем локальную переменную для внешнего отступа вниз,
-  чтобы избежать взаимодействие с более сложным селектором
- */
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
 p {
   --paragraphMarginBottom: 24px;
   margin-block: 0;
 }
 
 /**
-  Внешний отступ вниз для параграфа без атрибута class,
-  который расположен не последним среди своих соседних элементов
- */
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
 p:where(:not([class]):not(:last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
 
 /**
-  Упрощаем работу с изображениями и видео
- */
+   Упрощаем работу с изображениями и видео
+  */
 img,
 video {
   display: block;
@@ -93,8 +84,8 @@ video {
 }
 
 /**
-  Наследуем свойства шрифт для полей ввода
- */
+   Наследуем свойства шрифт для полей ввода
+  */
 input,
 textarea,
 select,
@@ -104,20 +95,20 @@ button {
 
 html {
   /**
-    Пригодится в большинстве ситуаций
-    (когда, например, нужно будет "прижать" футер к низу сайта)
-   */
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
   height: 100%;
   /**
-    Убираем скачок интерфейса по горизонтали
-    при появлении / исчезновении скроллбара
-   */
-  scrollbar-gutter: stable;
+     Убираем скачок интерфейса по горизонтали
+     при появлении / исчезновении скроллбара
+    */
+  scrollbar-gutter: auto;
 }
 
 /**
-  Плавный скролл
- */
+   Плавный скролл
+  */
 html,
 :has(:target) {
   scroll-behavior: smooth;
@@ -125,70 +116,68 @@ html,
 
 body {
   /**
-    Пригодится в большинстве ситуаций
-    (когда, например, нужно будет "прижать" футер к низу сайта)
-   */
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
   min-height: 100%;
   /**
-    Унифицированный интерлиньяж
-   */
+     Унифицированный интерлиньяж
+    */
   line-height: 1.5;
 }
 
 /**
-  Нормализация высоты элемента ссылки при его инспектировании в DevTools
- */
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
 a:where([class]) {
   display: inline-flex;
 }
 
 /**
-  Курсор-рука при наведении на элемент
- */
+   Курсор-рука при наведении на элемент
+  */
 button,
 label {
   cursor: pointer;
 }
 
 /**
-  Приводим к единому цвету svg-элементы
-  (за исключением тех, у которых уже указан
-  атрибут fill со значением 'none' или начинается с 'url')
- */
-:where([fill]:not([fill=none],
-[fill^=url])) {
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут fill со значением 'none' или начинается с 'url')
+  */
+:where([fill]:not([fill=none], [fill^=url])) {
   fill: currentColor;
 }
 
 /**
-  Приводим к единому цвету svg-элементы
-  (за исключением тех, у которых уже указан
-  атрибут stroke со значением 'none')
- */
-:where([stroke]:not([stroke=none],
-[stroke^=url])) {
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут stroke со значением 'none')
+  */
+:where([stroke]:not([stroke=none], [stroke^=url])) {
   stroke: currentColor;
 }
 
 /**
-  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
- */
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
 svg * {
   transition-property: fill, stroke;
 }
 
 /**
-  Приведение рамок таблиц в классический 'collapse' вид
- */
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
 :where(table) {
   border-collapse: collapse;
   border-color: currentColor;
 }
 
 /**
-  Удаляем все анимации и переходы для людей,
-  которые предпочитают их не использовать
- */
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -200,115 +189,173 @@ svg * {
   }
 }
 :root {
-  --color-red: #e16463;
-  --color-pink: #b66e7a;
-  --color-light-pink: #dc8988;
-  --color-light-pink2: #f4c4c3;
-  --color-light-pink3: #ceafb4;
-  --color-white: #fff;
-  --color-dark: #141414;
-  --color-light-dark: #1b1b1b;
-  --border-radius: 30px;
-  --border: 1px solid var(--color-light-pink);
-  --font-family-base: 'Inter', sans-serif;
-  --font-family-secondary: 'Corinthia', sans-serif;
-  --font-family-ascent: 'Corinthia', sans-serif;
-  --inputh-height: 54px;
+  --primary: #a10550;
+  --white: #fff;
+  --black: #0c0c0c;
+  --error: #c30000;
+  --success: #00966d;
+  --warning: #a9791c;
+  --border: 2px solid var(--white);
+  --input-height: 48px;
+  --font-family: 'Open Sans', sans-serif;
+  --second-family: 'Roboto', sans-serif;
   --transition-duration: 0.2s;
-  --container-width: 1300px;
-  --container-width-x: 15px;
+  --container-width: 1200px;
+  --container-padding-x: 15px;
 }
 
 body {
-  background-color: #F4F3F3;
-  font-family: var(--font-family-base);
-  color: var(--color-light-dark);
-  line-height: 1.1;
+  background-color: #faf9f5;
+  font-family: var(--font-family);
+  color: var(--white);
+  line-height: 1.6;
 }
 
 .container {
-  max-width: calc(var(--container-width) + var(--container-width-x) * 2);
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
   margin-inline: auto;
-  padding-inline: var(--container-width-x);
+  padding-inline: var(--container-padding-x);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
-  text-transform: uppercase;
 }
 
 a {
-  color: var(--color-light-dark);
+  color: var(--black);
+}
+
+a,
+button,
+input,
+textarea,
+svg {
+  transition-duration: var(--transition-duration);
 }
 
 a:hover {
-  color: var(--color-red);
-  transition: color var(--transition-duration) ease-in-out;
+  color: var(--primary);
 }
 
 @font-face {
-  font-family: "Corinthia";
-  src: url("../fonts/Corinthia-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Corinthia";
-  src: url("../fonts/Corinthia-Bold.woff2") format("woff2");
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("../fonts/Cormorant-Garamond-Light.woff2") format("woff2");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Cormorant Garamond";
-  src: url("../fonts/Cormorant-Garamond-Bold.woff2") format("woff2");
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter24pt-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 20px;
-}
-.header-menu-list {
-  display: flex;
-  column-gap: 21px;
-}
-.header-menu-link {
+.button {
   display: inline-flex;
   align-items: center;
-  height: 50px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 24px;
-  font-weight: 400;
-  font-family: "Cormorant Garamond", sans-serif;
-  color: var(--color-light-dark);
-  column-gap: 7px;
+  height: 48px;
+  padding-inline: 48px;
+  border: 2px solid var(--white);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--white);
+  background-color: transparent;
+  white-space: nowrap;
 }
-.header-menu-link.is-current::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  background-color: currentColor;
-  border-radius: 50%;
+.button:hover {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  transition-duration: var(--transition-duration);
+}
+
+.header {
+  height: 105px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .header {
+    height: 64px;
+    display: flex;
+    justify-content: center;
+  }
+  .header .header-burger {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+  }
+}
+.header-burger {
+  display: none;
+}
+.header {
+  background: linear-gradient(90deg, #f8edf2 0%, #f3dfe8 12%, #f8eef3 23%, #ffffff 32%, #ffffff 100%);
+}
+.header-inner {
+  display: flex;
+  padding-inline: var(--container-padding-x);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-inner-logo {
+  color: var(--primary);
+  transition-duration: var(--transition-duration);
+}
+.header-inner-logo:hover {
+  opacity: 0.6;
+}
+.header-inner-logo svg {
+  width: 78px;
+  height: 20px;
+}
+.header-inner-menu-list {
+  display: flex;
+  column-gap: 40px;
+}
+@media (max-width: 768px) {
+  .header-inner-menu-list {
+    display: none;
+  }
+}
+.header-inner-menu-link {
+  display: inline;
+  align-items: center;
+  height: 30px;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: var(--black);
+}
+
+.night-theme-toggle {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+}
+@media (max-width: 768px) {
+  .night-theme-toggle {
+    width: 26;
+    height: 26;
+  }
+}
+.night-theme-toggle:hover {
+  color: var(--primary);
+  opacity: 0.7;
+  transition-duration: var(--transition-duration);
 }
 
 /*# sourceMappingURL=style.css.map */

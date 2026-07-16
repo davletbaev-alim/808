@@ -1,40 +1,75 @@
-.header{
+.header {
+  height: 105px;
+  display: flex;
+  align-items: center;
+  
+
+  @media (max-width: 768px) {
+   height: 64px;
+   display: flex;
+   justify-content: center;
+    .header-burger{
+       height: 24px;
+       width: 24px;
+       display: flex;
+       align-items: center;
+       background-color: transparent;
+       border:none; 
+    }
+  }
+
+  &-burger {
+    display: none;
+  }
+
+  background: linear-gradient(
+    90deg,
+    #f8edf2 0%,
+    #f3dfe8 12%,
+    #f8eef3 23%,
+    #ffffff 32%,
+    #ffffff 100%
+  ) ;
+
+  &-inner {
     display: flex;
+    padding-inline: var(--container-padding-x);
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    column-gap: 20px;
 
- &-menu
- {
-    &-list{
+    &-logo {
+      color: var(--primary);
+      transition-duration: var(--transition-duration);
+
+      &:hover {
+        opacity: 0.6;
+      }
+      svg{
+        width: 78px;
+        height: 20px;
+      }
+    }
+
+    &-menu {
+      &-list {
         display: flex;
-        column-gap: 21px;
-
-        
-    }
-    &-link{
-        display: inline-flex;
-        align-items: center;
-    
-        height: 50px;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 24px;
-        font-weight: 400;
-        font-family: 'Cormorant Garamond', sans-serif;
-        color: var(--color-light-dark);
-        column-gap: 7px;
-    }
-
-     &-link.is-current::after{
-            content:"";
-            width: 5px;
-            height: 5px;
-            background-color: currentColor;
-            border-radius: 50%;
-            
+        column-gap: 40px;
+        @media  (max-width: 768px) {
+            display: none;
         }
- }
- 
-    
+      }
+      &-link {
+        display: inline;
+        align-items: center;
+        height: 30px;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: var(--font-family);
+        color: var(--black);
+      }
+    }
+  }
 }
